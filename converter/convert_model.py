@@ -414,7 +414,7 @@ def main():
     os.makedirs(os.path.dirname(o["output"]), exist_ok=True)
     with open(o["output"], "w", encoding="ascii") as f:
         json.dump(out, f)
-    report = {"name": o["name"], "output": o["output"], "pose": pose, "size": [round(v, 3) for v in size],
+    report = {"name": o["name"], "output": o["output"], "pose": pose, "size": size,
               "submeshes": len(out["Submeshes"]), "vertices": total_v, "triangles": total_t,
               "eye_triangles": len(eye_tris), "eye_texels": sum(e["covered"] for e in eyes.values()),
               "atlas": [aw, ah], "groups": keys, "bytes": os.path.getsize(o["output"])}

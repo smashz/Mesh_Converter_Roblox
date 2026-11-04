@@ -20,7 +20,7 @@ for (const [id, entry] of Object.entries(map)) {
   if (id.startsWith('_') || (only.length && !only.includes(id))) continue;
   const args = ['-b', '--factory-startup', '--python', path.join(__dirname, 'convert_model.py'), '--',
     path.join(root, entry.source), path.join(outDir, id + '.json'), '--name', id,
-    '--tex', String(entry.tex || 512), '--pose', entry.pose || 'idle'];
+    '--tex', String(entry.tex || 512), '--pose', entry.pose || 'idle', '--height', String(entry.height || 5)];
   let out = '';
   try { out = execFileSync(blender, args, { encoding: 'utf8', timeout: 300000, maxBuffer: 64 << 20 }); }
   catch (e) { out = (e.stdout || '') + (e.stderr || ''); }

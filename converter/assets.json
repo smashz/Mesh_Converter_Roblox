@@ -1,10 +1,31 @@
 {
-  "_comment": "Game id (ServerStorage.MBE_Models name) -> source file under the project folder. Optional: height (studs, otherwise the placeholder's height is used at runtime), yaw (degrees), tex (max texture size), pose (idle|rest). Private playtest stand-ins only.",
-  "Pipkit":      { "source": "poke_assets/3D Assets/Pokemon/pm0001_00_Rig/pm0001_00_Rig.fbx" },
-  "Bramblehorn": { "source": "poke_assets/3D Assets/Pokemon/pm0002_00_Rig/pm0002_00_Rig.fbx" },
-  "Galewing":    { "source": "poke_assets/3D Assets/Pokemon/pm0017_00_Rig/pm0017_00_Rig.fbx" },
-  "Thornback":   { "source": "poke_assets/3D Assets/Pokemon/pm0003_00_Rig/pm0003_00_Rig.fbx" },
-  "Mossling":    { "source": "poke_assets/3D Assets/Pokemon/pm0043_00_Rig/pm0043_00_Rig.fbx" },
-  "Buzzleaf":    { "source": "poke_assets/3D Assets/Pokemon/pm0015_00_Rig/pm0015_00_Rig.fbx" },
-  "Rockmole":    { "source": "poke_assets/3D Assets/Pokemon/pm0050_00_Rig/pm0050_00_Rig.fbx" }
+  "_comment": "Private playtest stand-ins. height is the intended total visible height in Roblox studs; all axes scale uniformly. yaw is optional degrees.",
+  "Pipkit": {
+    "source": "poke_assets/3D Assets/Pokemon/pm0001_00_Rig/pm0001_00_Rig.fbx",
+    "height": 4.7
+  },
+  "Bramblehorn": {
+    "source": "poke_assets/3D Assets/Pokemon/pm0002_00_Rig/pm0002_00_Rig.fbx",
+    "height": 7.5
+  },
+  "Galewing": {
+    "source": "poke_assets/3D Assets/Pokemon/pm0017_00_Rig/pm0017_00_Rig.fbx",
+    "height": 6.0
+  },
+  "Thornback": {
+    "source": "poke_assets/3D Assets/Pokemon/pm0003_00_Rig/pm0003_00_Rig.fbx",
+    "height": 10.0
+  },
+  "Mossling": {
+    "source": "poke_assets/3D Assets/Pokemon/pm0043_00_Rig/pm0043_00_Rig.fbx",
+    "height": 3.5
+  },
+  "Buzzleaf": {
+    "source": "poke_assets/3D Assets/Pokemon/pm0015_00_Rig/pm0015_00_Rig.fbx",
+    "height": 3.2
+  },
+  "Rockmole": {
+    "source": "poke_assets/3D Assets/Pokemon/pm0050_00_Rig/pm0050_00_Rig.fbx",
+    "height": 4.5
+  }
 }

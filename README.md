@@ -124,3 +124,28 @@ with the first command above. The local visual checks are in `screens/eyes_Pipki
 To use another model, add a line to `assets.json` (`source` is any `.fbx`, `.obj`, `.glb` or `.gltf`;
 optional `height`, `yaw`, `tex`, `pose`), then convert and push. `push_assets.js` never replaces a
 hand-made model you put in `MBE_Models` yourself.
+
+### Scale and ground placement (2026-11-04)
+
+The old importer normalized every source to 5 studs but ignored the configured height in the
+converter; at runtime it then used the unrelated placeholder's bounding height. That made some
+imports unexpectedly small. The converter now applies each explicit total height from
+`tools/converter/assets.json`, uniformly on all axes; `push_assets.js` passes the same height to
+the server template. The chosen playtest heights (studs) are Pipkit 4.7, Bramblehorn 7.5, Galewing
+6, Thornback 10, Mossling 3.5, Buzzleaf 3.2 and Rockmole 4.5. Adjust `height` there to tune them.
+The measured lowest visible vertex is y=0, and x/z are centered on the bounds. The server places
+the bottom of the anchor at the root-relative feet and the client welds the mesh to the anchor.
+Enemy spawning previously added an extra 0.2 studs above the raycast floor; this has been removed.
+Lowest-vertex grounding is an approximation for poses with dangling features, not anatomical foot detection.
+
+Run `node tools/converter/convert.js` and `python tools/converter/check_bounds.py`. On 2026-11-04
+all seven rebuilt successfully; the check passed for all seven, including small Buzzleaf and
+ground-positioned Mossling, at multiple translations and yaw angles. Results are saved in
+`build/playtest_assets/bounds_validation.txt`. This is a geometric check, not a Roblox physics or
+visual playtest; which specific model floated in the user's screenshot was not established.
+
+To apply these changes to the existing place, stop Play in Studio, run `node tools/push.js` and
+`node tools/push_assets.js`, save the place, and start Play. Enable **Allow Mesh / Image APIs**
+in Experience Settings > Security if necessary. Check each creature standing and moving, especially
+Buzzleaf and Mossling. Live rendering, movement, terrain contact and the chosen visual sizes remain
+unverified. Keep these assets in private playtests; do not publish or share the place containing them.
